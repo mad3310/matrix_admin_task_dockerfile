@@ -2,10 +2,10 @@
 FROM 10.160.140.32:5000/letv-jetty-base-ip:0.0.1
 MAINTAINER bingzheng.zhou <zhoubingzheng@letv.com>
 
-RUN rpm -ivh http://pkg-repo.oss.letv.com/pkgs/centos6/letv-release.noarch.rpm 
-RUN yum install jetty -y
-RUN yum install vim -y
-RUN yum install gbalancer -y
+#RUN rpm -ivh http://pkg-repo.oss.letv.com/pkgs/centos6/letv-release.noarch.rpm 
+#RUN yum install jetty -y
+#RUN yum install vim -y
+#RUN yum install gbalancer -y
 #RUN yum install java-1.6.0-openjdk-devel -y
 RUN yum install java-1.7.0-openjdk-devel.x86_64 -y
 RUN yum install openssl nss -y
