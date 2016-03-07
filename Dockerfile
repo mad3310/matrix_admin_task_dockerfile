@@ -1,4 +1,5 @@
-FROM 10.160.140.32:5000/letv-centos6
+#FROM 10.160.140.32:5000/letv-centos6
+FROM 10.160.140.32:5000/letv-jetty-base-ip:0.0.1
 MAINTAINER bingzheng.zhou <zhoubingzheng@letv.com>
 
 RUN rpm -ivh http://pkg-repo.oss.letv.com/pkgs/centos6/letv-release.noarch.rpm 
