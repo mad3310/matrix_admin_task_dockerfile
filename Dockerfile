@@ -1,18 +1,11 @@
-#FROM 10.160.140.32:5000/letv-centos6
 FROM 10.160.140.32:5000/letv-jetty-base-ip:0.0.1
-MAINTAINER bingzheng.zhou <zhoubingzheng@letv.com>
+MAINTAINER lisuxiao <lisuxiao@letv.com>
 
-#RUN rpm -ivh http://pkg-repo.oss.letv.com/pkgs/centos6/letv-release.noarch.rpm 
-#RUN yum install jetty -y
-#RUN yum install vim -y
-#RUN yum install gbalancer -y
-#RUN yum install java-1.6.0-openjdk-devel -y
 RUN yum install java-1.7.0-openjdk-devel.x86_64 -y
 RUN yum install openssl nss -y
 RUN rm -f /opt/letv/jetty/contexts/test.xml
 RUN yum install dejavu* -y
 
-EXPOSE 8080 8081
 USER root
 
 ADD ./file/webportal-webadmin.war /opt/letv/jetty/webapps/webportal-webadmin.war
@@ -21,16 +14,8 @@ ADD ./file/jetty-nosql-memcached-0.3.0-jar-with-dependencies.jar /opt/letv/jetty
 ADD ./file/jettyadmin.xml /opt/letv/jetty/etc/jetty.xml
 ADD ./file/jetty-web.xml /opt/letv/jetty/jetty-web.xml
 
-ADD ./file/jetty /etc/init.d/jetty
-ADD ./file/gbalancer /etc/init.d/gbalancer
-ADD ./file/cu.sh /opt/letv/jetty/cu.sh
-ADD ./file/3306configuration.json /3306configuration.json
-ADD ./file/init.sh /opt/letv/init.sh
 
-RUN chmod 755 /etc/init.d/jetty
-RUN chmod 755 /etc/init.d/gbalancer
-RUN chmod 755 /opt/letv/jetty/cu.sh
-RUN chmod 755 /opt/letv/init.sh
-RUN bash /opt/letv/jetty/cu.sh
 
-ENTRYPOINT bash /opt/letv/init.sh && /bin/bash
+ENTRYPOINT bash /root/init_net.sh && service jetty-manager restart && /salt_minion_init.sh  && service moxi-manager start && service gbalancer-manager start && /opt/letv/init.sh && /bin/bash
+
+
