@@ -16,6 +16,6 @@ ADD ./file/jetty-web.xml /opt/letv/jetty/jetty-web.xml
 
 
 
-ENTRYPOINT bash /root/init_net.sh && service jetty-manager restart && /salt_minion_init.sh  && service moxi-manager start && service gbalancer-manager start && /opt/letv/init.sh && /bin/bash
+ENTRYPOINT bash /root/init_net.sh && service jetty-manager restart && /salt_minion_init.sh  && service moxi-manager start && service gbalancer-manager start && /bin/bash
 
 
