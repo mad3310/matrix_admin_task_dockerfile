@@ -19,5 +19,5 @@ detected.
   <!--  + war OR resourceBase                                          -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <Set name="contextPath">/</Set>
-  <Set name="war"><SystemProperty name="jetty.home" default="."/>/webapps/webportal-webadmin/</Set>
+  <Set name="war"><SystemProperty name="jetty.home" default="."/>/webapps/webportal-webadmin.war</Set>
 </Configure>
