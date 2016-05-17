@@ -1,4 +1,4 @@
-FROM 10.160.140.32:5000/letv-jetty-base-ip:0.0.1
+FROM dockerapp.et.letv.com/matrix/letv-jetty-base-ip:0.0.1
 MAINTAINER lisuxiao <lisuxiao@letv.com>
 
 RUN yum install java-1.7.0-openjdk-devel.x86_64 -y
