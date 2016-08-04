@@ -14,8 +14,11 @@ ADD ./file/jetty-nosql-memcached-0.3.0-jar-with-dependencies.jar /opt/letv/jetty
 ADD ./file/jettyadmin.xml /opt/letv/jetty/etc/jetty.xml
 ADD ./file/jetty-web.xml /opt/letv/jetty/jetty-web.xml
 
+ADD ./file/init.sh /opt/letv/init_router.sh
+RUN chmod 755 /opt/letv/init_router.sh
 
 
-ENTRYPOINT bash /root/init_net.sh && service jetty-manager restart && /salt_minion_init.sh  && service moxi-manager start && service gbalancer-manager start && /bin/bash
+
+ENTRYPOINT bash /root/init_net.sh && /opt/letv/init_router.sh && service jetty-manager restart && /salt_minion_init.sh  && service moxi-manager start && service gbalancer-manager start && /bin/bash
 
 
