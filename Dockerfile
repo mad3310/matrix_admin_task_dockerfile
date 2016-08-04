@@ -14,7 +14,7 @@ ADD ./file/jetty-nosql-memcached-0.3.0-jar-with-dependencies.jar /opt/letv/jetty
 ADD ./file/jettyadmin.xml /opt/letv/jetty/etc/jetty.xml
 ADD ./file/jetty-web.xml /opt/letv/jetty/jetty-web.xml
 
-ADD ./file/init.sh /opt/letv/init_router.sh
+ADD ./file/init_router.sh /opt/letv/init_router.sh
 RUN chmod 755 /opt/letv/init_router.sh
 
 
